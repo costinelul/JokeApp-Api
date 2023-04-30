@@ -20,7 +20,7 @@ builder.Services.AddCors(options =>
 {
     options.AddDefaultPolicy(builder =>
     {
-        builder.WithOrigins("http://localhost:3000")
+        builder.WithOrigins("https://644ecdc8ba939e0ad4a96270--beamish-peony-ef5128.netlify.app")
                .AllowCredentials()
                .AllowAnyHeader()
                .AllowAnyMethod();
