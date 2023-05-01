@@ -33,9 +33,9 @@ namespace server.Controllers
 
             Response.Cookies.Append("jwt", jwt, new CookieOptions
             {
-                Domain = "localhost",
-                Path = "/",
-                HttpOnly = true
+                SameSite = SameSiteMode.None,
+                HttpOnly = true,
+                Secure = true,
             });
             return Ok();
         }
@@ -53,7 +53,7 @@ namespace server.Controllers
         {
             var jwt = Request.Cookies["jwt"];
             if (jwt is null) return Unauthorized();
-            
+
             var userId = _validateUser.ValidateUser(jwt);
             if (userId > 0)
             {
